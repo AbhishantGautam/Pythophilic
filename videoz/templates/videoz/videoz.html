@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load embed_video_tags %}
+
+{% block page_title %}Videos{% endblock %}
+
+{% block content %}
+
+<div class="container mx-auto px-4">      
+  <section class="pt-8 px-4">
+    <div class="flex flex-wrap -mx-4">
+      {% for item in chapter %}
+      <div class="md:w-1/3 px-4 mb-8">{% video item.video 'small' %}</div>
+      {% endfor %}
+      <!-- component -->
+<body>
+  <div class="container mx-auto px-4 sm:px-8">
+      <div class="py-8">
+          <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+              <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                  <div
+                      class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                      <span class="text-xs xs:text-sm text-gray-900">
+                        Page{{chapter.number}} of {{chapter.paginator.num_pages}}
+                      </span>
+                      <div class="inline-flex mt-2 xs:mt-0">
+                        {% if chapter.has_previous %}
+                          <button
+                              class="text-sm hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
+                              <a href="?page=1">&laquo;First</a>
+                          </button>
+                          <button
+                              class="text-sm hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
+                              <a href="?page={{chapter.previous_page_number}}">Previous</a>
+                          </button>
+                        {% endif %}
+                        {% if chapter.has_next %}
+                          <button
+                              class="text-sm hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
+                              <a href="?page={{chapter.next_page_number}}">Next</a>
+                          </button>
+                          <button
+                              class="text-sm hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">
+                              <a href="?page={{chapter.paginator.num_pages}}">Last &raquo;</a>
+                          </button>
+                        {% endif %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+{% endblock %}
