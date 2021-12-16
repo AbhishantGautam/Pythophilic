@@ -28,7 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
-    getenv("APP_HOST")
+    'pythophilic.herokuapp.com'
 ]
 
 
