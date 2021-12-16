@@ -18,5 +18,6 @@ def show_topics(request):
 def show_details(request, slug_):
     topic = Topics.objects.get(slug = slug_)
     return render(request, "topics/detail.html",{
-        "topic" : topic
+        "topic" : topic,
+        'locator' : topic.rating
     })

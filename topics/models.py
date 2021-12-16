@@ -6,7 +6,7 @@ class Topics(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=250)
     details = models.CharField(max_length=300)
-    rating = models.IntegerField()
+    rating = models.TextField()
     slug = models.SlugField(default="", null=False, db_index=True)
 
 
